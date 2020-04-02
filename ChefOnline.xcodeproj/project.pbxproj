@@ -13,6 +13,8 @@
 		FF2E18142436675400456F9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF2E18132436675400456F9C /* Assets.xcassets */; };
 		FF2E18172436675400456F9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF2E18162436675400456F9C /* Preview Assets.xcassets */; };
 		FF2E181A2436675400456F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2E18182436675400456F9C /* LaunchScreen.storyboard */; };
+		FF2E1822243667D200456F9C /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E1821243667D200456F9C /* CategoryModel.swift */; };
+		FF2E182424366BF200456F9C /* SelectedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E182324366BF200456F9C /* SelectedCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		FF2E18162436675400456F9C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FF2E18192436675400456F9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF2E181B2436675400456F9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF2E1821243667D200456F9C /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		FF2E182324366BF200456F9C /* SelectedCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				FF2E180D2436675300456F9C /* AppDelegate.swift */,
 				FF2E180F2436675300456F9C /* SceneDelegate.swift */,
 				FF2E18112436675300456F9C /* ContentView.swift */,
+				FF2E1821243667D200456F9C /* CategoryModel.swift */,
+				FF2E182324366BF200456F9C /* SelectedCategory.swift */,
 				FF2E18132436675400456F9C /* Assets.xcassets */,
 				FF2E18182436675400456F9C /* LaunchScreen.storyboard */,
 				FF2E181B2436675400456F9C /* Info.plist */,
@@ -147,6 +153,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF2E180E2436675300456F9C /* AppDelegate.swift in Sources */,
+				FF2E1822243667D200456F9C /* CategoryModel.swift in Sources */,
+				FF2E182424366BF200456F9C /* SelectedCategory.swift in Sources */,
 				FF2E18102436675300456F9C /* SceneDelegate.swift in Sources */,
 				FF2E18122436675300456F9C /* ContentView.swift in Sources */,
 			);

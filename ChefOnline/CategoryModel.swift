@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import SwiftUI
+
+struct CategoryModel: Identifiable {
+    var id = UUID()
+    var title: String
+    var image: String
+}
+
+let categoryList = [CategoryModel(title: "Աղանդեր", image: "desserts"),
+                    CategoryModel(title: "Թխվածքներ", image: "cookies"),
+                    CategoryModel(title: "Աղցաններ", image: "salads"),
+                    CategoryModel(title: "Ուտեստներ", image: "dishes"),
+                    CategoryModel(title: "Ապուրներ", image: "soups")]
