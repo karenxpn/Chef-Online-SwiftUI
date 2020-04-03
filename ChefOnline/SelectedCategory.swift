@@ -8,7 +8,8 @@
 
 import SwiftUI
 import Firebase
-import SDWebImage
+import SDWebImageSwiftUI
+
 
 struct SelectedCategory: View {
     
@@ -22,12 +23,12 @@ struct SelectedCategory: View {
                 
                 HStack {
                     
-                    Image("cookies")
+                    WebImage(url: URL(string: singleDish.image) )
                         .resizable()
+                        .cornerRadius(8)
                         .frame(width: 100, height: 100, alignment: .center)
-                        .aspectRatio(contentMode: .fit)
                         .padding()
-                    
+                                        
                     VStack {
                         Text(singleDish.title)
                             .font(.system(size: 22))
@@ -37,6 +38,7 @@ struct SelectedCategory: View {
                         Text(singleDish.recipe)
                             .font(.system(size: 14))
                             .lineLimit(3)
+                            .multilineTextAlignment(.center)
                     }
                 }
             }
