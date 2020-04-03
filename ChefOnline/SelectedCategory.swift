@@ -18,31 +18,34 @@ struct SelectedCategory: View {
     
 
     var body: some View {
-        List {
-            ForEach(categoryVM.dishList) { singleDish in
-                
-                HStack {
+        
+            List {
+                ForEach(categoryVM.dishList) { singleDish in
                     
-                    WebImage(url: URL(string: singleDish.image) )
-                        .resizable()
-                        .cornerRadius(8)
-                        .frame(width: 100, height: 100, alignment: .center)
-                        .padding()
-                                        
-                    VStack {
-                        Text(singleDish.title)
-                            .font(.system(size: 22))
-                            .lineLimit(3)
-                            .foregroundColor(.gray)
+                    HStack {
                         
-                        Text(singleDish.recipe)
-                            .font(.system(size: 14))
-                            .lineLimit(3)
-                            .multilineTextAlignment(.center)
+                        NavigationLink(destination: SingleDish(dishModel: singleDish)) {
+                            WebImage(url: URL(string: singleDish.image) )
+                                .resizable()
+                                .cornerRadius(8)
+                                .frame(width: 100, height: 100, alignment: .center)
+                                .padding()
+                            
+                            VStack {
+                                Text(singleDish.title)
+                                    .font(.system(size: 22))
+                                    .lineLimit(3)
+                                    .foregroundColor(.gray)
+                                
+                                Text(singleDish.recipe)
+                                    .font(.system(size: 14))
+                                    .lineLimit(3)
+                                    .multilineTextAlignment(.center)
+                            }
+                        }
                     }
                 }
-            }
-        }.navigationBarTitle(Text(selectedCategoryTitle))
+            }.navigationBarTitle(Text(selectedCategoryTitle))
     }
 }
 

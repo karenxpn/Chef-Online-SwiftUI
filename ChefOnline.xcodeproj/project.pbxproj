@@ -18,6 +18,7 @@
 		FF2E182424366BF200456F9C /* SelectedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E182324366BF200456F9C /* SelectedCategory.swift */; };
 		FF2E182624366E0600456F9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF2E182524366E0600456F9C /* GoogleService-Info.plist */; };
 		FF2E1828243673A400456F9C /* DishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E1827243673A400456F9C /* DishModel.swift */; };
+		FF2E182A2437B6BE00456F9C /* SingleDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E18292437B6BE00456F9C /* SingleDish.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		FF2E182324366BF200456F9C /* SelectedCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategory.swift; sourceTree = "<group>"; };
 		FF2E182524366E0600456F9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF2E1827243673A400456F9C /* DishModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishModel.swift; sourceTree = "<group>"; };
+		FF2E18292437B6BE00456F9C /* SingleDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDish.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				FF2E1821243667D200456F9C /* CategoryModel.swift */,
 				FF2E182324366BF200456F9C /* SelectedCategory.swift */,
 				FF2E1827243673A400456F9C /* DishModel.swift */,
+				FF2E18292437B6BE00456F9C /* SingleDish.swift */,
 				FF2E18132436675400456F9C /* Assets.xcassets */,
 				FF2E18182436675400456F9C /* LaunchScreen.storyboard */,
 				FF2E182524366E0600456F9C /* GoogleService-Info.plist */,
@@ -230,6 +233,7 @@
 				FF2E180E2436675300456F9C /* AppDelegate.swift in Sources */,
 				FF2E1828243673A400456F9C /* DishModel.swift in Sources */,
 				FF2E1822243667D200456F9C /* CategoryModel.swift in Sources */,
+				FF2E182A2437B6BE00456F9C /* SingleDish.swift in Sources */,
 				FF2E182424366BF200456F9C /* SelectedCategory.swift in Sources */,
 				FF2E18102436675300456F9C /* SceneDelegate.swift in Sources */,
 				FF2E18122436675300456F9C /* ContentView.swift in Sources */,
