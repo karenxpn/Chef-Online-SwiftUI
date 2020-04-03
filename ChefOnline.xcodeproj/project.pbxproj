@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82D38BAC1C91D7E4308A4290 /* Pods_ChefOnline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1B471E554FBCCF7034DF38 /* Pods_ChefOnline.framework */; };
 		FF2E180E2436675300456F9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E180D2436675300456F9C /* AppDelegate.swift */; };
 		FF2E18102436675300456F9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E180F2436675300456F9C /* SceneDelegate.swift */; };
 		FF2E18122436675300456F9C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E18112436675300456F9C /* ContentView.swift */; };
@@ -15,9 +16,14 @@
 		FF2E181A2436675400456F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2E18182436675400456F9C /* LaunchScreen.storyboard */; };
 		FF2E1822243667D200456F9C /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E1821243667D200456F9C /* CategoryModel.swift */; };
 		FF2E182424366BF200456F9C /* SelectedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E182324366BF200456F9C /* SelectedCategory.swift */; };
+		FF2E182624366E0600456F9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF2E182524366E0600456F9C /* GoogleService-Info.plist */; };
+		FF2E1828243673A400456F9C /* DishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E1827243673A400456F9C /* DishModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E0492304EBB29861A9D9FA5 /* Pods-ChefOnline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefOnline.debug.xcconfig"; path = "Target Support Files/Pods-ChefOnline/Pods-ChefOnline.debug.xcconfig"; sourceTree = "<group>"; };
+		7F1B471E554FBCCF7034DF38 /* Pods_ChefOnline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChefOnline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6DCF07F26920E71BD38F929 /* Pods-ChefOnline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefOnline.release.xcconfig"; path = "Target Support Files/Pods-ChefOnline/Pods-ChefOnline.release.xcconfig"; sourceTree = "<group>"; };
 		FF2E180A2436675300456F9C /* ChefOnline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChefOnline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2E180D2436675300456F9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF2E180F2436675300456F9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +34,8 @@
 		FF2E181B2436675400456F9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF2E1821243667D200456F9C /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		FF2E182324366BF200456F9C /* SelectedCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategory.swift; sourceTree = "<group>"; };
+		FF2E182524366E0600456F9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FF2E1827243673A400456F9C /* DishModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82D38BAC1C91D7E4308A4290 /* Pods_ChefOnline.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09FC0430BE646DC5524FCFC8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1E0492304EBB29861A9D9FA5 /* Pods-ChefOnline.debug.xcconfig */,
+				E6DCF07F26920E71BD38F929 /* Pods-ChefOnline.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		2CEFF0B3C8C009F025CAA62E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F1B471E554FBCCF7034DF38 /* Pods_ChefOnline.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FF2E18012436675300456F9C = {
 			isa = PBXGroup;
 			children = (
 				FF2E180C2436675300456F9C /* ChefOnline */,
 				FF2E180B2436675300456F9C /* Products */,
+				09FC0430BE646DC5524FCFC8 /* Pods */,
+				2CEFF0B3C8C009F025CAA62E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,8 +93,10 @@
 				FF2E18112436675300456F9C /* ContentView.swift */,
 				FF2E1821243667D200456F9C /* CategoryModel.swift */,
 				FF2E182324366BF200456F9C /* SelectedCategory.swift */,
+				FF2E1827243673A400456F9C /* DishModel.swift */,
 				FF2E18132436675400456F9C /* Assets.xcassets */,
 				FF2E18182436675400456F9C /* LaunchScreen.storyboard */,
+				FF2E182524366E0600456F9C /* GoogleService-Info.plist */,
 				FF2E181B2436675400456F9C /* Info.plist */,
 				FF2E18152436675400456F9C /* Preview Content */,
 			);
@@ -88,9 +118,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF2E181E2436675400456F9C /* Build configuration list for PBXNativeTarget "ChefOnline" */;
 			buildPhases = (
+				CB95C15B8FD6151B55D8A5E7 /* [CP] Check Pods Manifest.lock */,
 				FF2E18062436675300456F9C /* Sources */,
 				FF2E18072436675300456F9C /* Frameworks */,
 				FF2E18082436675300456F9C /* Resources */,
+				0D3C4FFE6231F39F7930033E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -140,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF2E181A2436675400456F9C /* LaunchScreen.storyboard in Resources */,
+				FF2E182624366E0600456F9C /* GoogleService-Info.plist in Resources */,
 				FF2E18172436675400456F9C /* Preview Assets.xcassets in Resources */,
 				FF2E18142436675400456F9C /* Assets.xcassets in Resources */,
 			);
@@ -147,12 +180,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0D3C4FFE6231F39F7930033E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChefOnline/Pods-ChefOnline-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChefOnline/Pods-ChefOnline-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChefOnline/Pods-ChefOnline-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB95C15B8FD6151B55D8A5E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChefOnline-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FF2E18062436675300456F9C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FF2E180E2436675300456F9C /* AppDelegate.swift in Sources */,
+				FF2E1828243673A400456F9C /* DishModel.swift in Sources */,
 				FF2E1822243667D200456F9C /* CategoryModel.swift in Sources */,
 				FF2E182424366BF200456F9C /* SelectedCategory.swift in Sources */,
 				FF2E18102436675300456F9C /* SceneDelegate.swift in Sources */,
@@ -290,8 +366,9 @@
 		};
 		FF2E181F2436675400456F9C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E0492304EBB29861A9D9FA5 /* Pods-ChefOnline.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ChefOnline/Preview Content\"";
 				DEVELOPMENT_TEAM = Z9LZT27D3M;
@@ -310,8 +387,9 @@
 		};
 		FF2E18202436675400456F9C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6DCF07F26920E71BD38F929 /* Pods-ChefOnline.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ChefOnline/Preview Content\"";
 				DEVELOPMENT_TEAM = Z9LZT27D3M;
