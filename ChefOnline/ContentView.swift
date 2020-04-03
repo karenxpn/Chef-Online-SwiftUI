@@ -30,9 +30,10 @@ struct CategoryList: View {
                                                                  categoryVM: CategoryViewModel(category: singleCategory.title))) {
                         Image( singleCategory.image )
                             .resizable()
-                            .frame(width: 190, height: 130, alignment: .center)
-                            .aspectRatio(contentMode: .fit)
                             .cornerRadius(18)
+                            .frame(width: 190, height: 130, alignment: .center)
+                            .aspectRatio(contentMode: .fill)
+
                         
                         Text(singleCategory.title)
                             .font(.system(size: 20))
