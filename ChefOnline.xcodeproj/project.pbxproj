@@ -71,6 +71,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FF05AEA82439DE9700520DCC /* models */ = {
+			isa = PBXGroup;
+			children = (
+				FF2E1821243667D200456F9C /* CategoryModel.swift */,
+				FF2E1827243673A400456F9C /* DishModel.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		FF05AEA92439DEAA00520DCC /* delegates */ = {
+			isa = PBXGroup;
+			children = (
+				FF2E180D2436675300456F9C /* AppDelegate.swift */,
+				FF2E180F2436675300456F9C /* SceneDelegate.swift */,
+			);
+			path = delegates;
+			sourceTree = "<group>";
+		};
+		FF05AEAA2439DEB800520DCC /* views */ = {
+			isa = PBXGroup;
+			children = (
+				FF2E18112436675300456F9C /* ContentView.swift */,
+				FF2E182324366BF200456F9C /* SelectedCategory.swift */,
+				FF2E18292437B6BE00456F9C /* SingleDish.swift */,
+				FF05AEA62439DDAF00520DCC /* Profile.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		FF2E18012436675300456F9C = {
 			isa = PBXGroup;
 			children = (
@@ -92,19 +121,14 @@
 		FF2E180C2436675300456F9C /* ChefOnline */ = {
 			isa = PBXGroup;
 			children = (
-				FF2E180D2436675300456F9C /* AppDelegate.swift */,
-				FF2E180F2436675300456F9C /* SceneDelegate.swift */,
-				FF2E18112436675300456F9C /* ContentView.swift */,
-				FF2E1821243667D200456F9C /* CategoryModel.swift */,
-				FF2E182324366BF200456F9C /* SelectedCategory.swift */,
-				FF2E1827243673A400456F9C /* DishModel.swift */,
-				FF2E18292437B6BE00456F9C /* SingleDish.swift */,
+				FF05AEAA2439DEB800520DCC /* views */,
+				FF05AEA92439DEAA00520DCC /* delegates */,
+				FF05AEA82439DE9700520DCC /* models */,
 				FF4E1C8C2437D4290089FEC1 /* Assets.xcassets */,
 				FF2E18182436675400456F9C /* LaunchScreen.storyboard */,
 				FF2E182524366E0600456F9C /* GoogleService-Info.plist */,
 				FF2E181B2436675400456F9C /* Info.plist */,
 				FF2E18152436675400456F9C /* Preview Content */,
-				FF05AEA62439DDAF00520DCC /* Profile.swift */,
 			);
 			path = ChefOnline;
 			sourceTree = "<group>";
