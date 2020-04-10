@@ -9,8 +9,26 @@
 import Foundation
 import Firebase
 
-class FirebaseService: ObservableObject {
+class FirebaseService {
     
+    func postData( category: String, dish: DishModel, completion: @escaping ( DishModel? ) -> ()) {
+        let firebaseDatabse = Firestore.firestore()
+        
+        let dishToPass = ["title": dish.title,
+                          "recipe": dish.recipe,
+                          "image": dish.image]
+        
+        firebaseDatabse.collection(category).addDocument(data: dishToPass, completion: { error in
+            if error != nil {
+                completion( nil )
+                return
+            } else {
+                DispatchQueue.main.async {
+                    completion( dish )
+                }
+            }
+        })
+    }
 
     func fetchData( category: String, completion: @escaping ([DishModel]) -> () ) {
         let firestoreDatabase = Firestore.firestore()

@@ -21,6 +21,7 @@
 		FF2E182A2437B6BE00456F9C /* SingleDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E18292437B6BE00456F9C /* SingleDish.swift */; };
 		FF361EE0244099470003287E /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF361EDF244099470003287E /* FirebaseService.swift */; };
 		FF361EE224409ADC0003287E /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF361EE124409ADC0003287E /* CategoryViewModel.swift */; };
+		FF361F092440CC530003287E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF361F082440CC530003287E /* ProfileViewModel.swift */; };
 		FF4E1C8D2437D4290089FEC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF4E1C8C2437D4290089FEC1 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		FF2E18292437B6BE00456F9C /* SingleDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDish.swift; sourceTree = "<group>"; };
 		FF361EDF244099470003287E /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		FF361EE124409ADC0003287E /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		FF361F082440CC530003287E /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		FF4E1C8C2437D4290089FEC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				FF361EE124409ADC0003287E /* CategoryViewModel.swift */,
+				FF361F082440CC530003287E /* ProfileViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				FF2E1822243667D200456F9C /* CategoryModel.swift in Sources */,
 				FF361EE0244099470003287E /* FirebaseService.swift in Sources */,
 				FF2E182A2437B6BE00456F9C /* SingleDish.swift in Sources */,
+				FF361F092440CC530003287E /* ProfileViewModel.swift in Sources */,
 				FF2E182424366BF200456F9C /* SelectedCategory.swift in Sources */,
 				FF2E18102436675300456F9C /* SceneDelegate.swift in Sources */,
 				FF2E18122436675300456F9C /* ContentView.swift in Sources */,

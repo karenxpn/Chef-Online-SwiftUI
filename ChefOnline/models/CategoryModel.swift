@@ -15,6 +15,7 @@ struct CategoryModel: Identifiable {
     var image: String
 }
 
+
 let categoryList = [CategoryModel(title: "Աղանդեր", image: "desserts"),
                     CategoryModel(title: "Թխվածքներ", image: "cookies"),
                     CategoryModel(title: "Աղցաններ", image: "salads"),
