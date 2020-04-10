@@ -9,13 +9,21 @@
 import SwiftUI
 
 struct Profile: View {
+    
+    @Binding var isPresented: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        Button(action: {
+            self.isPresented = false
+        }) {
+            Text( "Button" )
+        }
     }
 }
 
 struct Profile_Previews: PreviewProvider {
     static var previews: some View {
-        Profile()
+        Profile(isPresented: .constant(false))
     }
 }

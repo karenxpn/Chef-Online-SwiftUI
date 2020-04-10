@@ -10,11 +10,25 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var show: Bool = false
+    
     var body: some View {
         
         NavigationView {
             CategoryList()
+                .navigationBarItems(trailing: Button( action: showProfile ){
+                    Image( systemName: "person.circle.fill")
+                        .font(Font.system(.largeTitle))
+                        .padding([.top], 10)
+                })
+                .sheet(isPresented: self.$show) {
+                    Profile(isPresented: self.$show)
+                }
         }
+    }
+    
+    private func showProfile() {
+        self.show = true
     }
 }
 
