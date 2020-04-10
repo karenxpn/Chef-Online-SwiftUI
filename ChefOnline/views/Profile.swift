@@ -12,6 +12,8 @@ struct Profile: View {
     
     @Binding var isPresented: Bool
     @ObservedObject var profileVM = ProfileViewModel()
+    @State var shown: Bool = false
+    @State var image: UIImage = UIImage(named: "selectimage")!
     
     var body: some View {
         
@@ -20,10 +22,13 @@ struct Profile: View {
             ScrollView {
             
                 VStack {
-                    Image( "selectimage" )
+                    Image(uiImage: self.image)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 200, height: 200)
+                        .onTapGesture {
+                            self.shown.toggle()
+                        }
                     
                     Picker("", selection: self.$profileVM.category) {
                         ForEach( categoryList ) { i in
@@ -37,21 +42,19 @@ struct Profile: View {
                     .padding()
                     
                     TextField( "Write recipe here", text: self.$profileVM.dishRecipe)
-                    
                         .padding().lineLimit(nil)
                 }
                 
                 .navigationBarItems(trailing: Button(action: {
-                    
-                    print("\(self.$profileVM.category)")
-                    print(self.$profileVM.dishTitle)
-                    print(self.$profileVM.dishRecipe)
-                    
+                    self.profileVM.dishImage = self.image
+                    self.profileVM.saveDataToFirebase()
                     self.isPresented = false
                 }) {
                     Text( "Save" )
                         .fontWeight(.medium)
                 })
+            }.sheet(isPresented: self.$shown) {
+                ImagePicker(shown: self.$shown, selectedImage: self.$image)
             }
         }
 

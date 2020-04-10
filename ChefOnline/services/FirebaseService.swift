@@ -11,23 +11,52 @@ import Firebase
 
 class FirebaseService {
     
-    func postData( category: String, dish: DishModel, completion: @escaping ( DishModel? ) -> ()) {
-        let firebaseDatabse = Firestore.firestore()
+    func postData( category: String, dish: DishModelFirebase) {
         
-        let dishToPass = ["title": dish.title,
-                          "recipe": dish.recipe,
-                          "image": dish.image]
+        //------------Storage----------
         
-        firebaseDatabse.collection(category).addDocument(data: dishToPass, completion: { error in
-            if error != nil {
-                completion( nil )
-                return
-            } else {
-                DispatchQueue.main.async {
-                    completion( dish )
+        
+        let storage = Storage.storage()
+        let storageReference = storage.reference()
+        
+        let mediaFolder = storageReference.child("uploaded")
+
+        
+        if let data = dish.image?.jpegData(compressionQuality: 0.6) {
+            let uuid = UUID().uuidString
+                        
+            let imageReference = mediaFolder.child("\(uuid).jpg")
+            imageReference.putData(data, metadata: nil) { ( metadata, error ) in
+                if error != nil {
+                    print("Ooops")
+                } else {
+                    
+                    imageReference.downloadURL { (url, error) in
+                        if error == nil {
+                            let imageUrl = url?.absoluteString
+
+                            let dictionary = ["image": imageUrl,
+                                              "title": dish.title,
+                                              "recipe": dish.recipe] as [String : Any]
+                            
+                            //Firestore
+                            let firebaseDatabse = Firestore.firestore()
+                            
+                            firebaseDatabse.collection(category).addDocument(data: dictionary , completion: { error in
+                                if error != nil {
+                                    print("Error occured")
+                                }
+                            })
+                        }
+                    }
                 }
             }
-        })
+            
+        }
+
+        
+        
+
     }
 
     func fetchData( category: String, completion: @escaping ([DishModel]) -> () ) {
