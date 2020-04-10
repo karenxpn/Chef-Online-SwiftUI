@@ -40,8 +40,7 @@ struct CategoryList: View {
             ForEach(categoryList) { singleCategory in
                 HStack {
                                         
-                    NavigationLink(destination: SelectedCategory(selectedCategoryTitle: singleCategory.title,
-                                                                 categoryVM: CategoryViewModel(category: singleCategory.title))) {
+                    NavigationLink(destination: SelectedCategory(selectedCategory: singleCategory.title)) {
                         Image( singleCategory.image )
                             .resizable()
                             .cornerRadius(18)

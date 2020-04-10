@@ -16,7 +16,11 @@ struct SelectedCategory: View {
     var selectedCategoryTitle: String
     @ObservedObject var categoryVM: CategoryViewModel
     
-
+    init( selectedCategory: String ) {
+        self.selectedCategoryTitle = selectedCategory
+        categoryVM = CategoryViewModel( category: self.selectedCategoryTitle )
+    }
+    
     var body: some View {
         
             List {
@@ -49,37 +53,9 @@ struct SelectedCategory: View {
     }
 }
 
-class CategoryViewModel : ObservableObject {
-    
-    @Published var dishList = [DishModel]()
-
-    init(category: String) {
-
-        let firestoreDatabase = Firestore.firestore()
-        firestoreDatabase.collection(category).addSnapshotListener { (snapshot, error) in
-            if error != nil {
-                print("Error occured")
-            } else {
-                
-                if snapshot?.isEmpty != true {
-                    for document in snapshot!.documents {
-                        if let image = document.get( "image" ) as? String {
-                            if let title = document.get("title") as? String {
-                                if let recipe = document.get("recipe") as? String {
-                                    self.dishList.append(DishModel(title: title, recipe: recipe.replacingOccurrences(of: "  ", with: "\n"), image: image))
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
 
 struct SelectedCategory_Previews: PreviewProvider {
     static var previews: some View {
-        SelectedCategory(selectedCategoryTitle: "", categoryVM: CategoryViewModel(category: "karen"))
+        SelectedCategory(selectedCategory: "")
     }
 }
