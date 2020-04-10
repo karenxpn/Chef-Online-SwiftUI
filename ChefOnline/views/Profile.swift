@@ -7,8 +7,12 @@
 //
 
 import SwiftUI
+import Combine
 
 struct Profile: View {
+    
+    //Keyboard
+    @State var value: CGFloat = 0
     
     @Binding var isPresented: Bool
     @ObservedObject var profileVM = ProfileViewModel()
@@ -43,7 +47,13 @@ struct Profile: View {
                     
                     TextField( "Write recipe here", text: self.$profileVM.dishRecipe)
                         .padding().lineLimit(nil)
+                    
+                }.offset( y: -self.value)
+                    .animation(.spring())
+                    .onAppear {
+                        self.keyboardNotification()
                 }
+                    
                 
                 .navigationBarItems(trailing: Button(action: {
                     self.profileVM.dishImage = self.image
@@ -53,11 +63,30 @@ struct Profile: View {
                     Text( "Save" )
                         .fontWeight(.medium)
                 })
-            }.sheet(isPresented: self.$shown) {
+                
+            }
+            .onTapGesture {
+                UIApplication.shared.endEditing()
+            }
+            .sheet(isPresented: self.$shown) {
                 ImagePicker(shown: self.$shown, selectedImage: self.$image)
             }
         }
-
+    }
+    
+    func keyboardNotification() {
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (notification) in
+               
+               let value = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+               let height = value.height
+               
+               self.value = height
+           }
+           
+           NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (notification) in
+               
+               self.value = 0
+           }
     }
 }
 
@@ -66,3 +95,10 @@ struct Profile_Previews: PreviewProvider {
         Profile(isPresented: .constant(false))
     }
 }
+
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+
