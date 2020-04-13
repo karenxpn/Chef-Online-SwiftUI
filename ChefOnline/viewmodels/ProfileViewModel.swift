@@ -13,12 +13,13 @@ class ProfileViewModel: ObservableObject {
     
     @Published var category: String = "Աղանդեր"
     @Published var dishTitle: String = ""
-    @Published var dishRecipe: String = ""
+    @Published var dishRecipe: String = "Your recipe here"
     @Published var dishImage: UIImage?
         
     
     func saveDataToFirebase() {
         print("prepare to save data")
+        
         let dishModel = DishModelFirebase(title: dishTitle, recipe: dishRecipe, image: dishImage)
         
         FirebaseService().postData(category: category, dish: dishModel)

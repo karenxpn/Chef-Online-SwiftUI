@@ -28,7 +28,7 @@ struct Profile: View {
                 VStack {
                     Image(uiImage: self.image)
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
                         .frame(width: 200, height: 200)
                         .onTapGesture {
                             self.shown.toggle()
@@ -45,9 +45,10 @@ struct Profile: View {
                     TextField("Write title here", text: self.$profileVM.dishTitle)
                     .padding()
                     
-                    TextField( "Write recipe here", text: self.$profileVM.dishRecipe)
-                        .padding().lineLimit(nil)
+                    TextView(text: self.$profileVM.dishRecipe )
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 500, maxHeight: .infinity)
                     
+                                        
                 }.offset( y: -self.value)
                     .animation(.spring())
                     .onAppear {
