@@ -44,9 +44,7 @@ class FirebaseService {
                             
                             firebaseDatabse.collection(category).addDocument(data: dictionary , completion: { error in
                                 if error != nil {
-                                    print("Error occured")
-                                } else {
-                                    print ( "data is posted" )
+                                    print(error?.localizedDescription ?? "Error" )
                                 }
                             })
                         }

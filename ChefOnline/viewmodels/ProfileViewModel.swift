@@ -18,10 +18,8 @@ class ProfileViewModel: ObservableObject {
         
     
     func saveDataToFirebase() {
-        print("prepare to save data")
         
         let dishModel = DishModelFirebase(title: dishTitle, recipe: dishRecipe, image: dishImage)
-        
         FirebaseService().postData(category: category, dish: dishModel)
     }
     

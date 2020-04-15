@@ -18,6 +18,7 @@ struct Profile: View {
     @ObservedObject var profileVM = ProfileViewModel()
     @State var shown: Bool = false
     @State var image: UIImage = UIImage(named: "selectimage")!
+    @State private var showAlert = false
     
     var body: some View {
         
@@ -57,9 +58,14 @@ struct Profile: View {
                     
                 
                 .navigationBarItems(trailing: Button(action: {
-                    self.profileVM.dishImage = self.image
-                    self.profileVM.saveDataToFirebase()
-                    self.isPresented = false
+                    
+                    if self.image == UIImage(named: "selectimage") || self.profileVM.dishRecipe == "Your recipe here" || self.profileVM.dishTitle == "" {
+                        self.showAlert = true
+                    } else {
+                        self.profileVM.dishImage = self.image
+                        self.profileVM.saveDataToFirebase()
+                        self.isPresented = false
+                    }
                 }) {
                     Text( "Save" )
                         .fontWeight(.medium)
@@ -72,7 +78,11 @@ struct Profile: View {
             .sheet(isPresented: self.$shown) {
                 ImagePicker(shown: self.$shown, selectedImage: self.$image)
             }
-        }
+        }//alert here
+            .alert(isPresented: self.$showAlert) {
+                Alert(title: Text ( "Error" ), message: Text( "Enter recipe/Enter title/Select image" ), dismissButton: .default(Text( "OK" )))
+            }
+        
     }
     
     func keyboardNotification() {
