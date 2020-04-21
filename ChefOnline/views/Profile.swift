@@ -20,6 +20,7 @@ struct Profile: View {
     @State var image: UIImage = UIImage(named: "selectimage")!
     @State private var showAlert = false
     
+    
     var body: some View {
         
         NavigationView {
@@ -86,6 +87,7 @@ struct Profile: View {
     }
     
     func keyboardNotification() {
+        
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (notification) in
                
                let value = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect

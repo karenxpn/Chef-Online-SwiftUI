@@ -18,6 +18,7 @@ class ProfileViewModel: ObservableObject {
     @Published var userIsLoggedIn: Bool = false
     @Published var userEmail: String = ""
     @Published var userPassword: String = ""
+    @Published var response: Response = Response(error: false, errorMessage: "")
         
     
     func saveDataToFirebase() {
@@ -28,13 +29,24 @@ class ProfileViewModel: ObservableObject {
     
     func loginUser() {
         FirebaseService().loginUser(email: userEmail, password: userPassword) { (result) in
-            self.userIsLoggedIn = result
+            if let result = result {
+                self.response = result
+                if self.response.error == false {
+                    self.userIsLoggedIn = true
+                }
+            }
+
         }
     }
     
     func registerUser() {
         FirebaseService().signUp(email: userEmail, password: userPassword) { (result) in
-            self.userIsLoggedIn = result
+            if let result = result {
+                self.response = result
+                if self.response.error == false {
+                    self.userIsLoggedIn = true
+                }
+            }
         }
     }
     

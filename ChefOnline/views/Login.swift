@@ -29,6 +29,8 @@ struct Login: View {
                     self.profileViewModel.loginUser()
                 }) {
                     Text( "Sign In" ).font(.system(size: 20))
+                }.alert(isPresented: self.$profileViewModel.response.error) {
+                    Alert(title: Text( "Error occured" ), message: Text( self.profileViewModel.response.errorMessage), dismissButton: .default(Text( "OK")))
                 }
                 
                 Spacer()
@@ -36,7 +38,10 @@ struct Login: View {
                     self.profileViewModel.registerUser()
                 }) {
                     Text( "Sign Up" ).font(.system(size: 20))
+                }.alert(isPresented: self.$profileViewModel.response.error) {
+                    Alert(title: Text( "Error occured" ), message: Text( self.profileViewModel.response.errorMessage), dismissButton: .default(Text( "OK")))
                 }
+                
                 Spacer()
             }
             

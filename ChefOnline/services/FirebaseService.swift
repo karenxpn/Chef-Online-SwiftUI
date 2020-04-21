@@ -89,36 +89,36 @@ class FirebaseService {
         }
     }
     
-    func loginUser(email: String, password: String, completion: @escaping( Bool ) -> () ) {
+    func loginUser(email: String, password: String, completion: @escaping( Response? ) -> () ) {
         
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error != nil {
                 DispatchQueue.main.async {
-                    completion( false )
+                    completion( Response(error: true, errorMessage: error?.localizedDescription ?? "Error") )
                 }
                 return
             }
             
             else {
                 DispatchQueue.main.async {
-                    completion( true )
+                    completion( Response(error: false, errorMessage: "") )
                 }
             }
         }
     }
     
-    func signUp( email: String, password: String, completion: @escaping( Bool ) -> () ) {
+    func signUp( email: String, password: String, completion: @escaping( Response? ) -> () ) {
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if error != nil {
                 DispatchQueue.main.async {
-                    completion( false )
+                    completion( Response(error: true, errorMessage: error?.localizedDescription ?? "Error") )
                 }
                 return
             }
             
             else {
                 DispatchQueue.main.async {
-                    completion( true )
+                    completion( Response(error: false, errorMessage: "") )
                 }
             }
         }
