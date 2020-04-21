@@ -16,10 +16,10 @@ struct User: View {
     
     var body: some View {
         ZStack {
-            if self.profileViewModel.userIsLoggedIn == false {
-                Login()
-            } else if Auth.auth().currentUser != nil {
+            if Auth.auth().currentUser != nil {
                 Profile( isPresented: self.$isPresented )
+            } else if self.profileViewModel.userIsLoggedIn == false {
+                Login()
             }
             else {
                 Profile(isPresented: self.$isPresented)
