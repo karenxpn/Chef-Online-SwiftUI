@@ -13,7 +13,7 @@ class ProfileViewModel: ObservableObject {
     
     @Published var category: String = "Աղանդեր"
     @Published var dishTitle: String = ""
-    @Published var dishRecipe: String = "Your recipe here"
+    @Published var dishRecipe: String = "Ձեր բաղադրատոմսը այստեղ"
     @Published var dishImage: UIImage?
     @Published var userIsLoggedIn: Bool = false
     @Published var userEmail: String = ""

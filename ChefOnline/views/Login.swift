@@ -33,25 +33,23 @@ struct Login: View {
                 
                 
                 HStack {
-                    Spacer()
                     Button(action: {
                         self.profileViewModel.loginUser()
                     }) {
-                        Text( "Sign In" ).font(.system(size: 20))
+                        Text( "Մուտք գործել" ).font(.system(size: 20))
                     }.alert(isPresented: self.$profileViewModel.response.error) {
-                        Alert(title: Text( "Error occured" ), message: Text( self.profileViewModel.response.errorMessage), dismissButton: .default(Text( "OK")))
+                        Alert(title: Text( "Սխալ" ), message: Text( self.profileViewModel.response.errorMessage), dismissButton: .default(Text( "Լավ")))
                     }
                     
                     Spacer()
                     Button(action: {
                         self.profileViewModel.registerUser()
                     }) {
-                        Text( "Sign Up" ).font(.system(size: 20))
+                        Text( "Գրանցվել" ).font(.system(size: 20))
                     }.alert(isPresented: self.$profileViewModel.response.error) {
-                        Alert(title: Text( "Error occured" ), message: Text( self.profileViewModel.response.errorMessage), dismissButton: .default(Text( "OK")))
+                        Alert(title: Text( "Սխալ" ), message: Text( self.profileViewModel.response.errorMessage), dismissButton: .default(Text( "Լավ")))
                     }
                     
-                    Spacer()
                 }.padding()
                 
                 Spacer()

@@ -44,7 +44,7 @@ struct Profile: View {
                     .labelsHidden()
                     
                     
-                    TextField("Write title here", text: self.$profileVM.dishTitle)
+                    TextField("Գրեք վերնագիրն այստեղ", text: self.$profileVM.dishTitle)
                     .padding()
                     
                     TextView(text: self.$profileVM.dishRecipe )
@@ -60,7 +60,7 @@ struct Profile: View {
                 
                 .navigationBarItems(trailing: Button(action: {
                     
-                    if self.image == UIImage(named: "selectimage") || self.profileVM.dishRecipe == "Your recipe here" || self.profileVM.dishTitle == "" {
+                    if self.image == UIImage(named: "selectimage") || self.profileVM.dishRecipe == "Ձեր բաղադրատոմսը այստեղ" || self.profileVM.dishTitle == "" {
                         self.showAlert = true
                     } else {
                         self.profileVM.dishImage = self.image
@@ -68,7 +68,7 @@ struct Profile: View {
                         self.isPresented = false
                     }
                 }) {
-                    Text( "Save" )
+                    Text( "Պահպանել" )
                         .fontWeight(.medium)
                 })
                 
@@ -81,7 +81,7 @@ struct Profile: View {
             }
         }//alert here
             .alert(isPresented: self.$showAlert) {
-                Alert(title: Text ( "Error" ), message: Text( "Enter recipe/Enter title/Select image" ), dismissButton: .default(Text( "OK" )))
+                Alert(title: Text ( "Սխալ" ), message: Text( "Մուտքագրեք բաղադրատոմսը / Մուտքագրեք վերնագիրը / Ընտրեք պատկերը" ), dismissButton: .default(Text( "Լավ" )))
             }
         
     }
