@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject var profileViewModel: ProfileViewModel
     @State private var show: Bool = false
     
     var body: some View {
@@ -22,7 +23,8 @@ struct ContentView: View {
                         .padding([.top], 10)
                 })
                 .sheet(isPresented: self.$show) {
-                    Profile(isPresented: self.$show)
+                    User(isPresented: self.$show)
+                        .environmentObject(self.profileViewModel)
                 }
         }
     }

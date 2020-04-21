@@ -29,7 +29,7 @@ struct SingleDish: View {
                     .multilineTextAlignment(.center)
                     .padding()
                 
-                Text ( dishModel.recipe.replacingOccurrences(of: "  ", with: "\n") )
+                Text ( dishModel.recipe.replacingOccurrences(of: "  ", with: "\n\n") )
                     .multilineTextAlignment(.leading)
                     .padding()
                     

@@ -88,4 +88,39 @@ class FirebaseService {
             }
         }
     }
+    
+    func loginUser(email: String, password: String, completion: @escaping( Bool ) -> () ) {
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if error != nil {
+                DispatchQueue.main.async {
+                    completion( false )
+                }
+                return
+            }
+            
+            else {
+                DispatchQueue.main.async {
+                    completion( true )
+                }
+            }
+        }
+    }
+    
+    func signUp( email: String, password: String, completion: @escaping( Bool ) -> () ) {
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+            if error != nil {
+                DispatchQueue.main.async {
+                    completion( false )
+                }
+                return
+            }
+            
+            else {
+                DispatchQueue.main.async {
+                    completion( true )
+                }
+            }
+        }
+    }
 }

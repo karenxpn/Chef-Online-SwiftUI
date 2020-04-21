@@ -15,12 +15,27 @@ class ProfileViewModel: ObservableObject {
     @Published var dishTitle: String = ""
     @Published var dishRecipe: String = "Your recipe here"
     @Published var dishImage: UIImage?
+    @Published var userIsLoggedIn: Bool = false
+    @Published var userEmail: String = ""
+    @Published var userPassword: String = ""
         
     
     func saveDataToFirebase() {
         
         let dishModel = DishModelFirebase(title: dishTitle, recipe: dishRecipe, image: dishImage)
         FirebaseService().postData(category: category, dish: dishModel)
+    }
+    
+    func loginUser() {
+        FirebaseService().loginUser(email: userEmail, password: userPassword) { (result) in
+            self.userIsLoggedIn = result
+        }
+    }
+    
+    func registerUser() {
+        FirebaseService().signUp(email: userEmail, password: userPassword) { (result) in
+            self.userIsLoggedIn = result
+        }
     }
     
 }
