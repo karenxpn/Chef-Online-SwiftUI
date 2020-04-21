@@ -14,40 +14,50 @@ struct Login: View {
     
     var body: some View {
         
-        VStack( alignment: .leading) {
-            
-            Text( "Email here" ).padding([.leading, .top, .trailing], 12)
-            TextField("example@icloud.com", text: self.$profileViewModel.userEmail).padding()
-            
-            Text( "Password" ).padding([.leading, .top, .trailing], 12)
-            TextField( "123456", text: self.$profileViewModel.userPassword ).padding()
-            
-            
-            HStack {
-                Spacer()
-                Button(action: {
-                    self.profileViewModel.loginUser()
-                }) {
-                    Text( "Sign In" ).font(.system(size: 20))
-                }.alert(isPresented: self.$profileViewModel.response.error) {
-                    Alert(title: Text( "Error occured" ), message: Text( self.profileViewModel.response.errorMessage), dismissButton: .default(Text( "OK")))
+        NavigationView {
+            VStack( alignment: .leading) {
+                
+                Group{
+                    Section(header: Text( "Էլեկտրոնային Հասցե" )) {
+                        TextField("example@icloud.com", text: self.$profileViewModel.userEmail)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding([.leading, .trailing], 12)
+                    }
+                    
+                    Section(header: Text( "Գաղտնաբառ" )) {
+                        TextField( "123456", text: self.$profileViewModel.userPassword )
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding([.leading, .trailing], 12)
+                    }
                 }
                 
-                Spacer()
-                Button(action: {
-                    self.profileViewModel.registerUser()
-                }) {
-                    Text( "Sign Up" ).font(.system(size: 20))
-                }.alert(isPresented: self.$profileViewModel.response.error) {
-                    Alert(title: Text( "Error occured" ), message: Text( self.profileViewModel.response.errorMessage), dismissButton: .default(Text( "OK")))
-                }
+                
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        self.profileViewModel.loginUser()
+                    }) {
+                        Text( "Sign In" ).font(.system(size: 20))
+                    }.alert(isPresented: self.$profileViewModel.response.error) {
+                        Alert(title: Text( "Error occured" ), message: Text( self.profileViewModel.response.errorMessage), dismissButton: .default(Text( "OK")))
+                    }
+                    
+                    Spacer()
+                    Button(action: {
+                        self.profileViewModel.registerUser()
+                    }) {
+                        Text( "Sign Up" ).font(.system(size: 20))
+                    }.alert(isPresented: self.$profileViewModel.response.error) {
+                        Alert(title: Text( "Error occured" ), message: Text( self.profileViewModel.response.errorMessage), dismissButton: .default(Text( "OK")))
+                    }
+                    
+                    Spacer()
+                }.padding()
                 
                 Spacer()
-            }
-            
-            Spacer()
-            
-            
+                
+            }.padding()
+                .navigationBarTitle(Text( "Բարի գալուստ"), displayMode: .inline)
         }
     }
 }
