@@ -26,7 +26,7 @@ struct Profile: View {
         NavigationView {
             
             ScrollView {
-            
+                
                 VStack {
                     Image(uiImage: self.image)
                         .resizable()
@@ -34,31 +34,40 @@ struct Profile: View {
                         .frame(width: 200, height: 200)
                         .onTapGesture {
                             self.shown.toggle()
-                        }
+                    }
                     
                     Picker("", selection: self.$profileVM.category) {
                         ForEach( categoryList ) { i in
                             Text( i.title ).tag( i.title )
                         }
                     }.pickerStyle(WheelPickerStyle())
-                    .labelsHidden()
+                        .labelsHidden()
                     
                     
                     TextField("Գրեք վերնագիրն այստեղ", text: self.$profileVM.dishTitle)
-                    .padding()
+                        .padding()
                     
                     TextView(text: self.$profileVM.dishRecipe )
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 500, maxHeight: .infinity)
+                        .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray))
                     
-                                        
-                }.offset( y: -self.value)
+                    
+                    
+                }.offset( y: -self.value )
                     .animation(.spring())
                     .onAppear {
                         self.keyboardNotification()
                 }
+                .navigationBarItems(leading: Button(action: {
                     
-                
-                .navigationBarItems(trailing: Button(action: {
+                    self.profileVM.signOut()
+                    if self.profileVM.userIsLoggedIn == false {
+                        self.isPresented = false
+                    }
+                }) {
+                    Text( "Ելք" )
+                        .fontWeight(.medium)
+                }, trailing: Button(action: {
                     
                     if self.image == UIImage(named: "selectimage") || self.profileVM.dishRecipe == "Ձեր բաղադրատոմսը այստեղ" || self.profileVM.dishTitle == "" {
                         self.showAlert = true
@@ -72,6 +81,7 @@ struct Profile: View {
                         .fontWeight(.medium)
                 })
                 
+                
             }
             .onTapGesture {
                 UIApplication.shared.endEditing()
@@ -82,24 +92,24 @@ struct Profile: View {
         }//alert here
             .alert(isPresented: self.$showAlert) {
                 Alert(title: Text ( "Սխալ" ), message: Text( "Մուտքագրեք բաղադրատոմսը / Մուտքագրեք վերնագիրը / Ընտրեք պատկերը" ), dismissButton: .default(Text( "Լավ" )))
-            }
+        }
         
     }
     
     func keyboardNotification() {
         
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (notification) in
-               
-               let value = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
-               let height = value.height
-               
-               self.value = height
-           }
-           
-           NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (notification) in
-               
-               self.value = 0
-           }
+            
+            let value = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+            let height = value.height
+            
+            self.value = height
+        }
+        
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (notification) in
+            
+            self.value = 0
+        }
     }
 }
 

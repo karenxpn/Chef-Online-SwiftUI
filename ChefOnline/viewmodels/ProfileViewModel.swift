@@ -23,7 +23,7 @@ class ProfileViewModel: ObservableObject {
     
     func saveDataToFirebase() {
         
-        let dishModel = DishModelFirebase(title: dishTitle, recipe: dishRecipe, image: dishImage)
+        let dishModel = DishModelFirebase(title: dishTitle, recipe: dishRecipe.replacingOccurrences(of: "\n", with: "  "), image: dishImage)
         FirebaseService().postData(category: category, dish: dishModel)
     }
     
@@ -45,6 +45,17 @@ class ProfileViewModel: ObservableObject {
                 self.response = result
                 if self.response.error == false {
                     self.userIsLoggedIn = true
+                }
+            }
+        }
+    }
+    
+    func signOut() {
+        FirebaseService().signOut { (response) in
+            if let response = response {
+                self.response = response
+                if self.response.error == false {
+                    self.userIsLoggedIn = false
                 }
             }
         }

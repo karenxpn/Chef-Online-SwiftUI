@@ -25,7 +25,7 @@ struct Login: View {
                     }
                     
                     Section(header: Text( "Գաղտնաբառ" )) {
-                        TextField( "123456", text: self.$profileViewModel.userPassword )
+                        SecureField( "123456", text: self.$profileViewModel.userPassword )
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding([.leading, .trailing], 12)
                     }
