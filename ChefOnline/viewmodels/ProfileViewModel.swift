@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 
 class ProfileViewModel: ObservableObject {
     
@@ -48,17 +49,5 @@ class ProfileViewModel: ObservableObject {
                 }
             }
         }
-    }
-    
-    func signOut() {
-        FirebaseService().signOut { (response) in
-            if let response = response {
-                self.response = response
-                if self.response.error == false {
-                    self.userIsLoggedIn = false
-                }
-            }
-        }
-    }
-    
+    }    
 }

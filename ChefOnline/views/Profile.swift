@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Combine
+import Firebase
 
 struct Profile: View {
     
@@ -58,16 +59,7 @@ struct Profile: View {
                     .onAppear {
                         self.keyboardNotification()
                 }
-                .navigationBarItems(leading: Button(action: {
-                    
-                    self.profileVM.signOut()
-                    if self.profileVM.userIsLoggedIn == false {
-                        self.isPresented = false
-                    }
-                }) {
-                    Text( "Ելք" )
-                        .fontWeight(.medium)
-                }, trailing: Button(action: {
+                .navigationBarItems(trailing: Button(action: {
                     
                     if self.image == UIImage(named: "selectimage") || self.profileVM.dishRecipe == "Ձեր բաղադրատոմսը այստեղ" || self.profileVM.dishTitle == "" {
                         self.showAlert = true
@@ -79,7 +71,9 @@ struct Profile: View {
                 }) {
                     Text( "Պահպանել" )
                         .fontWeight(.medium)
-                })
+                }).alert(isPresented: self.$profileVM.response.error) {
+                    Alert(title: Text( "Սխալ" ), message: Text( self.profileVM.response.errorMessage), dismissButton: .default(Text( "Լավ")))
+                }
                 
                 
             }

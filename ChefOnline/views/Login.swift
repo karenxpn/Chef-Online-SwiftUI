@@ -15,47 +15,47 @@ struct Login: View {
     var body: some View {
         
         NavigationView {
-            VStack( alignment: .leading) {
-                
-                Group{
-                    Section(header: Text( "Էլեկտրոնային Հասցե" )) {
-                        TextField("example@icloud.com", text: self.$profileViewModel.userEmail)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .padding([.leading, .trailing], 12)
+            
+                VStack( alignment: .leading) {
+                    
+                    Group{
+                        Section(header: Text( "Էլեկտրոնային Հասցե" )) {
+                            TextField("example@icloud.com", text: self.$profileViewModel.userEmail)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .padding([.leading, .trailing], 12)
+                        }
+                        
+                        Section(header: Text( "Գաղտնաբառ" )) {
+                            SecureField( "123456", text: self.$profileViewModel.userPassword )
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .padding([.leading, .trailing], 12)
+                        }
                     }
                     
-                    Section(header: Text( "Գաղտնաբառ" )) {
-                        SecureField( "123456", text: self.$profileViewModel.userPassword )
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .padding([.leading, .trailing], 12)
-                    }
-                }
-                
-                
-                HStack {
-                    Button(action: {
-                        self.profileViewModel.loginUser()
-                    }) {
-                        Text( "Մուտք գործել" ).font(.system(size: 20))
-                    }.alert(isPresented: self.$profileViewModel.response.error) {
-                        Alert(title: Text( "Սխալ" ), message: Text( self.profileViewModel.response.errorMessage), dismissButton: .default(Text( "Լավ")))
-                    }
+                    HStack {
+                        Button(action: {
+                            self.profileViewModel.loginUser()
+                        }) {
+                            Text( "Մուտք գործել" ).font(.system(size: 20))
+                        }.alert(isPresented: self.$profileViewModel.response.error) {
+                            Alert(title: Text( "Սխալ" ), message: Text( self.profileViewModel.response.errorMessage), dismissButton: .default(Text( "Լավ")))
+                        }
+                        
+                        Spacer()
+                        Button(action: {
+                            self.profileViewModel.registerUser()
+                        }) {
+                            Text( "Գրանցվել" ).font(.system(size: 20))
+                        }.alert(isPresented: self.$profileViewModel.response.error) {
+                            Alert(title: Text( "Սխալ" ), message: Text( self.profileViewModel.response.errorMessage), dismissButton: .default(Text( "Լավ")))
+                        }
+                        
+                    }.padding()
                     
                     Spacer()
-                    Button(action: {
-                        self.profileViewModel.registerUser()
-                    }) {
-                        Text( "Գրանցվել" ).font(.system(size: 20))
-                    }.alert(isPresented: self.$profileViewModel.response.error) {
-                        Alert(title: Text( "Սխալ" ), message: Text( self.profileViewModel.response.errorMessage), dismissButton: .default(Text( "Լավ")))
-                    }
                     
                 }.padding()
-                
-                Spacer()
-                
-            }.padding()
-                .navigationBarTitle(Text( "Բարի գալուստ"), displayMode: .inline)
+            .navigationBarTitle(Text( "Բարի գալուստ"), displayMode: .inline)
         }
     }
 }

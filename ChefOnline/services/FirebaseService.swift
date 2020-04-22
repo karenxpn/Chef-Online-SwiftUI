@@ -123,13 +123,4 @@ class FirebaseService {
             }
         }
     }
-    
-    func signOut( completion: @escaping ( Response? ) -> () ) {
-        do {
-            try Auth.auth().signOut()
-            completion( Response(error: false, errorMessage: ""))
-        }catch {
-            completion(Response(error: true, errorMessage: "Error"))
-        }
-    }
 }
