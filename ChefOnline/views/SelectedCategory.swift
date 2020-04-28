@@ -15,6 +15,7 @@ struct SelectedCategory: View {
     
     var selectedCategoryTitle: String
     @ObservedObject var categoryVM: CategoryViewModel
+    @State private var search: String = ""
     
     init( selectedCategory: String ) {
         self.selectedCategoryTitle = selectedCategory
@@ -23,8 +24,15 @@ struct SelectedCategory: View {
     
     var body: some View {
         
+        VStack {
+            SearchBar(text: self.$search)
             List {
-                ForEach(categoryVM.dishList) { singleDish in
+                
+                
+                ForEach(categoryVM.dishList
+                    .filter{
+                        self.search.isEmpty ? true : $0.title.localizedCaseInsensitiveContains(self.search)
+                }) { singleDish in
                     
                     HStack {
                         
@@ -49,7 +57,12 @@ struct SelectedCategory: View {
                         }
                     }
                 }
-            }.navigationBarTitle(Text(selectedCategoryTitle))
+            }
+        }
+        .gesture(DragGesture().onChanged{_ in
+            UIApplication.shared.endEditing()
+        })
+        .navigationBarTitle(Text(selectedCategoryTitle))
     }
 }
 

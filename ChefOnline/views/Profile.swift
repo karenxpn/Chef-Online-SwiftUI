@@ -112,10 +112,3 @@ struct Profile_Previews: PreviewProvider {
         Profile(isPresented: .constant(false))
     }
 }
-
-extension UIApplication {
-    func endEditing() {
-        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
-

@@ -53,10 +53,6 @@ class FirebaseService {
             }
             
         }
-
-        
-        
-
     }
 
     func fetchData( category: String, completion: @escaping ([DishModel]) -> () ) {

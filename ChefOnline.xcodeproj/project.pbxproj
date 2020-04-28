@@ -28,6 +28,8 @@
 		FF465A59244F48E3001E2CCB /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF465A58244F48E3001E2CCB /* Login.swift */; };
 		FF465A5B244F84D6001E2CCB /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF465A5A244F84D6001E2CCB /* Response.swift */; };
 		FF4E1C8D2437D4290089FEC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF4E1C8C2437D4290089FEC1 /* Assets.xcassets */; };
+		FF9A21AA2458892500E56709 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9A21A92458892500E56709 /* SearchBar.swift */; };
+		FF9A21AD24588B2900E56709 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9A21AC24588B2900E56709 /* Extensions.swift */; };
 		FFF855A92444D3220091D525 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF855A82444D3220091D525 /* TextView.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		FF465A58244F48E3001E2CCB /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		FF465A5A244F84D6001E2CCB /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		FF4E1C8C2437D4290089FEC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF9A21A92458892500E56709 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		FF9A21AC24588B2900E56709 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FFF855A82444D3220091D525 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +124,7 @@
 				FFF855A82444D3220091D525 /* TextView.swift */,
 				FF465A56244F4731001E2CCB /* User.swift */,
 				FF465A58244F48E3001E2CCB /* Login.swift */,
+				FF9A21A92458892500E56709 /* SearchBar.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 		FF2E180C2436675300456F9C /* ChefOnline */ = {
 			isa = PBXGroup;
 			children = (
+				FF9A21AB24588B1400E56709 /* Utils */,
 				FF361EDE2440992A0003287E /* services */,
 				FF361EDD244098BC0003287E /* viewmodels */,
 				FF05AEAA2439DEB800520DCC /* views */,
@@ -182,6 +188,14 @@
 				FF361EDF244099470003287E /* FirebaseService.swift */,
 			);
 			path = services;
+			sourceTree = "<group>";
+		};
+		FF9A21AB24588B1400E56709 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FF9A21AC24588B2900E56709 /* Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,7 +319,9 @@
 				FF05AEA72439DDAF00520DCC /* Profile.swift in Sources */,
 				FF465A5B244F84D6001E2CCB /* Response.swift in Sources */,
 				FFF855A92444D3220091D525 /* TextView.swift in Sources */,
+				FF9A21AA2458892500E56709 /* SearchBar.swift in Sources */,
 				FF361EE224409ADC0003287E /* CategoryViewModel.swift in Sources */,
+				FF9A21AD24588B2900E56709 /* Extensions.swift in Sources */,
 				FF2E1828243673A400456F9C /* DishModel.swift in Sources */,
 				FF2E1822243667D200456F9C /* CategoryModel.swift in Sources */,
 				FF361EE0244099470003287E /* FirebaseService.swift in Sources */,
@@ -465,7 +481,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.developer.store.ChefOnline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -486,7 +502,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.developer.store.ChefOnline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
